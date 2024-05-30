@@ -1,7 +1,7 @@
-from hashtag_generator import HashtagGenerator
+from hashtag_utils import HashtagUtils
 
 ## 1. with default args
-hg = HashtagGenerator()
+hg = HashtagUtils()
 
 text = "A new study shows that eating chocolate can help you lose weight."
 
@@ -30,3 +30,12 @@ hashtags = hg.get_hashtags(text, temperature=0.7, num_tags=10)
 
 print("text: ", text)
 print("hashtags returned: ", hashtags)
+
+### 3. Similar hashtags
+
+hashtags = ["#ProductEngineering", "#Tech", "#HackerCulture"]
+
+similar_hashtags = hg.get_similar_hashtags(hashtags, temperature=0.7, num_tags=10)
+
+print("hashtags: ", hashtags)
+print("similar hashtags", similar_hashtags)
