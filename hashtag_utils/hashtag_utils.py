@@ -97,3 +97,38 @@ class HashtagUtils:
         except Exception as e:
             traceback.print_exc()
             return None
+        
+    def get_one_hashtag_relevance(self, tag: str, content: str, temperature=0.5) -> List[str]:
+        try:
+            completion = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": f"You are an AI agent that analyses hashtags and content to determine relevance.\
+                                            The hashtag and content will be supplied to your in the form of a prompt.\
+                                            Return the result as a JSON object with hashtag (string) and relevance_score (float) \
+                                            The relevance score is the degree with which there's a match between the hashtag and the content. \
+                                            Determine the relevance of the following hashtag to the content.",
+                    },
+                    {"role": "user", "content": f"Hashtag: {tag} \nContent: {content}"},
+                ],
+                temperature=temperature,
+                response_format={"type": "json_object"},
+            )
+
+            hashtags_json = completion.choices[0].message.content
+            hashtags = json.loads(hashtags_json)
+
+            return hashtags
+        except Exception as e:
+            traceback.print_exc()
+            return None
+        
+    def get_hashtags_relevance(self, tags: List[str], content: str, temperature=0.5) -> List[str]:
+        try:
+            result = [self.get_one_hashtag_relevance(tag, content, temperature) for tag in tags]
+            return result 
+        except Exception as e:
+            traceback.print_exc()
+            return None
