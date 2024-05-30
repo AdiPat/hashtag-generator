@@ -1,7 +1,7 @@
 import dotenv
 import os
 import sys
-from .main import HashtagGenerator
+from .hashtag_generator import HashtagGenerator
 
 # Get the current script's directory
 current_directory = os.path.dirname(os.path.abspath(__file__))
