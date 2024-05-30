@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="hashtag-generator",
-    version="0.3",
+    name="hashtag_utils",
+    version="0.2",
     packages=find_packages(),
     author="Aditya Patange",
     author_email="contact.adityapatange@gmail.com",
-    description="An LLM-powered hashtag generator written in Python.",
+    description="Simple LLM-powered hashtag utilities.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="http://github.com/AdiPat/hashtag-generator",
+    url="http://github.com/AdiPat/hashtag_utils",
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
