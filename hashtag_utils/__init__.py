@@ -12,4 +12,7 @@ parent_directory = os.path.dirname(current_directory)
 # Add the parent directory to the Python path
 sys.path.append(parent_directory)
 
-dotenv.load_dotenv()
+env_path = os.path.join(os.getcwd(), ".env")
+
+
+dotenv.load_dotenv(env_path)
