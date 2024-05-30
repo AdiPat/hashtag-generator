@@ -39,3 +39,17 @@ similar_hashtags = hg.get_similar_hashtags(hashtags, temperature=0.7, num_tags=1
 
 print("hashtags: ", hashtags)
 print("similar hashtags", similar_hashtags)
+
+## 4. Hashtag Definitions
+
+hashtags = [
+    "#ProductEngineering",
+    "#Tech",
+    "#HackerCulture",
+    "Productivity",
+    "LOL",
+    "AI",
+    "MVP",
+]
+
+[print(hg.get_hashtag_definition(hashtag)) for hashtag in hashtags]
