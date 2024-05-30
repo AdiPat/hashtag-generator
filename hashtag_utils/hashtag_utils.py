@@ -3,6 +3,8 @@ from typing import List
 from openai import OpenAI
 import os
 import json
+from .common import is_alphanumeric
+
 
 
 class HashtagUtils:
@@ -57,6 +59,41 @@ class HashtagUtils:
             hashtags = json.loads(hashtags_json)
 
             return hashtags
+        except Exception as e:
+            traceback.print_exc()
+            return None
+
+    def get_hashtag_definition(self, hashtag: str, temperature=0.5) -> str:
+        try:
+            if not hashtag or len(hashtag) == 0:
+                return None
+            
+            if not hashtag.startswith("#"):
+                hashtag = f"#{hashtag}"
+
+            if not is_alphanumeric(hashtag[1:]):
+                raise ValueError("Hashtag should contain only alphanumeric characters")
+
+            completion = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": f"You are an AI agent that defines hashtags.\
+                                            The hashtag will be supplied to your in the form of a prompt.\
+                                            Return the result as a JSON with hashtag (string), confidence_percent (0 to 1 range,float) and definition (string). \
+                                            The confidence percent indicates how accurate the definition is in defining the hashtag. \
+                                            Define the following hashtag.",
+                    },
+                    {"role": "user", "content": f"Hashtag: {hashtag}"},
+                ],
+                temperature=temperature,
+                response_format={"type": "json_object"},
+            )
+
+            definition = completion.choices[0].message.content
+
+            return definition
         except Exception as e:
             traceback.print_exc()
             return None
