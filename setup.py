@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="hashtag_utils",
-    version="0.2",
-    packages=find_packages(),
+    version="0.5.2",
+    packages=["hashtag_utils"],
     author="Aditya Patange",
     author_email="contact.adityapatange@gmail.com",
     description="Simple LLM-powered hashtag utilities.",
@@ -15,5 +15,9 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
+    ],
+    install_requires=[
+        "openai",
+        "python-dotenv",
     ],
 )
