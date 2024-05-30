@@ -1,8 +1,8 @@
-# Hashtag Utilities
+# Hashtag Utilities 🏷️
 
-An LLM-powered multi-purpose hashtag utilities library written in Python. 🏷️
+An LLM-powered multi-purpose hashtag utilities library written in Python. 
 
-![Hashtag Utilities Hero](images/hero.png)
+![Hashtag Utilities Hero](https://raw.githubusercontent.com/AdiPat/hashtag_utils/main/images/hero.png)
 
 Hashtags are used on almost every content platform today. This makes it a vital tool for creating & analyzing content. 
 This utilities library makes it easy to do things with hashtags. Ideally, this module is intended to be used within a larger system where more specific problems are solved. 
