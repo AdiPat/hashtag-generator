@@ -1,6 +1,6 @@
 from openai import OpenAI
 import os
-import json 
+import json
 
 
 class HashtagGenerator:
@@ -15,7 +15,7 @@ class HashtagGenerator:
                     "role": "system",
                     "content": f"You are an AI agent that generates hashtags for a given piece of content.\
                                            The content will be supplied to your in the form of a prompt.\
-                                           Return the result as a JSON-array of the hashtags.
+                                           Return the result as a JSON-array of the hashtags. \
                                            Generate {num_tags} hashtags for the following content.",
                 },
                 {"role": "user", "content": f"Content: {content}"},
