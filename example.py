@@ -2,17 +2,15 @@ from hashtag_utils import HashtagUtils
 
 hg = HashtagUtils()
 
-
-# 1. with default args
-
 text = "A new study shows that eating chocolate can help you lose weight."
 
+## 1. Get Hashtags with default args
 hashtags = hg.get_hashtags(text)
 
 print("text: ", text)
 print("hashtags returned: ", hashtags)
 
-## 2. with custom args
+## 2. Get Hashtags with custom args
 
 text = """Error messages can teach you a lot! ♨️
 
@@ -56,7 +54,7 @@ hashtags = [
 
 [print(hg.get_hashtag_definition(hashtag)) for hashtag in hashtags]
 
-## 5. Hashtag Relevance
+# 5. Hashtag Relevance
 
 hashtags = [
     "#ProductEngineering",
@@ -66,9 +64,9 @@ hashtags = [
     "#MusicIndustry",
 ]
 
-text = """Error messages can teach you a lot! ♨️ 
+text = """Error messages can teach you a lot! ♨️
 
-When programming, coming across errors is common. You probably see an error everyday when writing code and spend time debugging it. How many times do we actually spend time understanding the error message, stack trace and it's causes before checking StackOverflow or asking CoPilot? Not many times. 
+When programming, coming across errors is common. You probably see an error everyday when writing code and spend time debugging it. How many times do we actually spend time understanding the error message, stack trace and it's causes before checking StackOverflow or asking CoPilot? Not many times.
 
 While getting quick help and resolving errors quickly without gaining much understanding might help you move faster in the short-term, it hinders your learning. When you spend time understanding the error message and stack trace, you gain insight into "what's happening behind the scenes". This improves your knowledge and ability to use the programming language or in short, technology.
 
@@ -82,3 +80,8 @@ What's your process to solve errors when programming? Let me know in the comment
 
 
 print(hg.get_hashtags_relevance(hashtags, text))
+
+## 6. Hashtag Distance
+print(hg.get_hashtag_distance("#ProductEngineering", "#SoftwareEngineering"))
+print(hg.get_hashtag_distance("#Fitness", "#Cricket"))
+print(hg.get_hashtag_distance("#ProductEngineering", "#Gardening"))
