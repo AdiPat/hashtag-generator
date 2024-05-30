@@ -14,6 +14,7 @@ This utilities library makes it easy to do things with hashtags. Ideally, this m
 - **Hashtag Relevance:** Returns the percentage relevance of a hashtag with respect to a content piece.
 - **Similar Hashtags:** Generates hash tages similar to the provided ones.
 - **Hashtag Distance:** Computes how close two hashtags are.
+- **Hashtag Definitions**: Get hashtag definitions. 
 
 # Contributors 
 - [Aditya Patange (AdiPat)](https://wwww.github.com/AdiPat)
