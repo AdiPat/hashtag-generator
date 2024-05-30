@@ -16,7 +16,10 @@ This utilities library makes it easy to do things with hashtags. Ideally, this m
 - **Hashtag Distance:** Computes how close two hashtags are.
 - **Hashtag Definitions**: Get hashtag definitions. 
 
+
 # Usage: HashtagUtils API
+
+Make sure you add your `OPENAI_API_KEY` to a .env file from the location where you're running the script. 
 
 ## Methods
 
@@ -55,6 +58,10 @@ Returns the semantic distance between two hashtags.
 
 - `hashtag1`: The first hashtag.
 - `hashtag2`: The second hashtag.
+
+## Run Examples
+- Add `OPENAI_API_KEY` to the `.env` file.
+- Run examples: `python example.py` 
 
 # Contributors 
 - [Aditya Patange (AdiPat)](https://wwww.github.com/AdiPat)
