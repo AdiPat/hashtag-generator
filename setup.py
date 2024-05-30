@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="hashtag-generator",
-    version="0.2",
+    version="0.3",
     packages=find_packages(),
     author="Aditya Patange",
     author_email="contact.adityapatange@gmail.com",
