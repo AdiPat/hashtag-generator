@@ -132,3 +132,39 @@ class HashtagUtils:
         except Exception as e:
             traceback.print_exc()
             return None
+        
+    def get_hashtag_distance(self, hashtag_source: str, hashtag_dest: str) -> float:
+        try:
+            h1_def = self.get_hashtag_definition(hashtag_source)
+            h2_def = self.get_hashtag_definition(hashtag_dest)
+            if not h1_def or not h2_def:
+                return -1
+            completion = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": f"You are an AI agent that analyses hashtags and content to determine the distance between them.\
+                                            2 hashtags will be supplied to you along with their definitions in the form of a prompt.\
+                                            Return the result as a JSON object with hashtag1 (string), hashtag2 (string) and distance (float, range 0 to 1) \
+                                            The distance is how similar the hashtags are. Greater distance means dissimilar, and lower distance means they are alike. \
+                                            Determine the relevance of the following hashtag to the content.",
+                    },
+                    {"role": "user", "content": json.dumps({
+                                            "hashtag_1": hashtag_source,
+                                            "hashtag_definition_1": h1_def,
+                                            "hashtag_2": hashtag_dest,
+                                            "hashtag_definition_2": h2_def
+                                            }),
+                    }
+                ],
+                response_format={"type": "json_object"},
+            )
+
+            result_json = completion.choices[0].message.content
+            result = json.loads(result_json)
+            return result
+        except Exception as e:
+            traceback.print_exc()
+            return -1
+
