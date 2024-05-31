@@ -21,6 +21,19 @@ This utilities library makes it easy to do things with hashtags. Ideally, this m
 
 Make sure you add your `OPENAI_API_KEY` to a .env file from the location where you're running the script. 
 
+```python
+from hashtag_utils import HashtagUtils
+
+hg = HashtagUtils()
+
+text = "A new study shows that eating chocolate can help you lose weight."
+
+hashtags = hg.get_hashtags(text)
+
+# check other methods below
+
+```
+
 ## Methods
 
 ### `get_hashtags(text: str, temperature: float = 1.0, num_tags: int = 5) -> List[str]`
