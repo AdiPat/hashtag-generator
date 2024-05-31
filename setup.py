@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="hashtag_utils",
-    version="0.5.2",
+    version="0.5.6",
     packages=["hashtag_utils"],
     author="Aditya Patange",
     author_email="contact.adityapatange@gmail.com",
